@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('table_autor', function (Blueprint $table) {
+        Schema::create('autor', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('nombre');
         });
     }
 
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('table_autor');
+        Schema::dropIfExists('autor');
     }
 };
