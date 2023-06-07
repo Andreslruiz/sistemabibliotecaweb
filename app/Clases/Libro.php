@@ -5,6 +5,6 @@ class Libro{
     public $Codigo;
     public $Titulo;
     public $ISBN;
-    public $CodigoEditorial;
-    public $CodigoAutor;
+    public $Editorial;
+    public $Autor;
 }

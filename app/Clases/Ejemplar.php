@@ -2,7 +2,6 @@
 
 class Ejemplar{
     public $Codigo;
+    public $Libro;
     public $Localizacion;
-    public $FechaPrestamo;
-    public $FechaDevolucion;
 }
