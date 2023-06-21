@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('ejemplars', function (Blueprint $table) {
             $table->id();
+            $table->string('codigo');
+            $table->string('localizacion');
+            $table->string('libro');
             $table->timestamps();
         });
     }

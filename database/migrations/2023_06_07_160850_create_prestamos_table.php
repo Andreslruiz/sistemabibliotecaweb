@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('prestamos', function (Blueprint $table) {
             $table->id();
+            $table->string('fecha_prestamo');
+            $table->string('fecha_devolucion');
+            $table->string('usuario');
+            $table->string('ejemplar');
             $table->timestamps();
         });
     }
