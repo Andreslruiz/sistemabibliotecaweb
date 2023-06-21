@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Libro;
+use App\Models\Editorial;
 use Illuminate\Http\Request;
 
 /**
- * Class LibroController
+ * Class EditorialController
  * @package App\Http\Controllers
  */
-class LibroController extends Controller
+class EditorialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class LibroController extends Controller
      */
     public function index()
     {
-        $libros = Libro::paginate();
+        $editorials = Editorial::paginate();
 
-        return view('libro.index', compact('libros'))
-            ->with('i', (request()->input('page', 1) - 1) * $libros->perPage());
+        return view('editorial.index', compact('editorials'))
+            ->with('i', (request()->input('page', 1) - 1) * $editorials->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class LibroController extends Controller
      */
     public function create()
     {
-        $libro = new Libro();
-        return view('libro.create', compact('libro'));
+        $editorial = new Editorial();
+        return view('editorial.create', compact('editorial'));
     }
 
     /**
@@ -43,12 +43,12 @@ class LibroController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Libro::$rules);
+        request()->validate(Editorial::$rules);
 
-        $libro = Libro::create($request->all());
+        $editorial = Editorial::create($request->all());
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro created successfully.');
+        return redirect()->route('editorials.index')
+            ->with('success', 'Editorial created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class LibroController extends Controller
      */
     public function show($id)
     {
-        $libro = Libro::find($id);
+        $editorial = Editorial::find($id);
 
-        return view('libro.show', compact('libro'));
+        return view('editorial.show', compact('editorial'));
     }
 
     /**
@@ -72,26 +72,26 @@ class LibroController extends Controller
      */
     public function edit($id)
     {
-        $libro = Libro::find($id);
+        $editorial = Editorial::find($id);
 
-        return view('libro.edit', compact('libro'));
+        return view('editorial.edit', compact('editorial'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Libro $libro
+     * @param  Editorial $editorial
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Libro $libro)
+    public function update(Request $request, Editorial $editorial)
     {
-        request()->validate(Libro::$rules);
+        request()->validate(Editorial::$rules);
 
-        $libro->update($request->all());
+        $editorial->update($request->all());
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro updated successfully');
+        return redirect()->route('editorials.index')
+            ->with('success', 'Editorial updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class LibroController extends Controller
      */
     public function destroy($id)
     {
-        $libro = Libro::find($id)->delete();
+        $editorial = Editorial::find($id)->delete();
 
-        return redirect()->route('libros.index')
-            ->with('success', 'Libro deleted successfully');
+        return redirect()->route('editorials.index')
+            ->with('success', 'Editorial deleted successfully');
     }
 }
