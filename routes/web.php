@@ -3,6 +3,8 @@
 use App\Http\Controllers\AutorController;
 use App\Http\Controllers\EditorialController;
 use App\Http\Controllers\LibroController;
+use App\Http\Controllers\UserPrestamoController;
+use App\Http\Controllers\EjemplarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,8 @@ Route::get('/', function () {
 Route::resource('autors', AutorController::class);
 Route::resource('editorials', EditorialController::class);
 Route::resource('libros', LibroController::class);
+Route::resource('user-prestamos', UserPrestamoController::class);
+Route::resource('ejemplars', EjemplarController::class);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
